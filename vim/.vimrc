@@ -60,26 +60,3 @@ set backspace=indent,eol,start
 
 " enable to move from beginning of line to end of upper line using left key
 set whichwrap=b,s,<,>,[,]
-
-"
-" Plugins
-"
-if has('win32')
-    set rtp+=~/vimfiles/bundle/neobundle.vim/
-    call neobundle#begin(expand('~/vimfiles/bundle/'))
-else
-    set rtp+=~/.vim/bundle/neobundle.vim/
-    call neobundle#begin(expand('~/.vim/bundle/'))
-endif
-
-NeoBundleFetch 'Shougo/neobundle.vim'
-
-NeoBundle 'tomasr/molokai'
-NeoBundle 'istepura/vim-toolbar-icons-silk'
-NeoBundle 'kannokanno/previm'
-NeoBundle 'tyru/open-browser.vim'
-NeoBundle 'vim-scripts/SWIG-syntax'
-
-call neobundle#end()
-
-filetype plugin indent on
