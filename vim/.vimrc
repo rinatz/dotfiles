@@ -17,9 +17,6 @@ set nobackup
 set noundofile
 set noswapfile
 
-" open file from current directory
-set autochdir
-
 "
 " View settings
 "
