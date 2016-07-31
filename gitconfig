@@ -1,0 +1,13 @@
+[user]
+    name = Kenichiro IDA
+[core]
+    editor = vi
+    autocrlf = false
+[gui]
+    encoding = utf-8
+[diff]
+    guitool = WinMerge
+[difftool "WinMerge"]
+    cmd = WinMergeU.exe -e -u -r -f \"*.*\" \"$LOCAL\" \"$REMOTE\"
+[mergetool "WinMerge"]
+    cmd = WinMergeU.exe -e -u \"$LOCAL\" \"$REMOTE\" \"$MERGED\"
