@@ -52,8 +52,8 @@ set cursorline
 "
 " Key actions
 "
-" enable to delete indent and new line using backspace
+" delete indent and new line with backspace
 set backspace=indent,eol,start
 
-" enable to move from beginning of line to end of upper line using left key
+" move from beginning of line to end of upper line with left key
 set whichwrap=b,s,<,>,[,]
