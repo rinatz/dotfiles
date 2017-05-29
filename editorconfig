@@ -12,8 +12,8 @@ insert_final_newline = true
 [Makefile]
 indent_style = tab
 
-[*.rb]
+[{*.rb,Vagrantfile}]
 indent_size = 2
 
-[{*.yml,*.yaml}]
+[{*.yml,*.yaml,*.dig}]
 indent_size = 2

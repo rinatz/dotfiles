@@ -4,6 +4,33 @@ alias ll='ls -l'
 alias mv='mv -i'
 alias rm='rm -i'
 
-PS1='\[\033]2;\h:\w\a\033[00;32m\]\u@\h\[\033[00m\]:\[\033[00;33m\]\W$(__git_ps1)\[\033[00m\]\$ '
+if ! shopt -oq posix; then
+    if [[ -f /usr/share/bash-completion/bash_completion ]]; then
+        . /usr/share/bash-completion/bash_completion
+    elif [[ -f /etc/bash_completion ]]; then
+        . /etc/bash_completion
+    fi
+fi
 
-export USER=$USERNAME
+if type -t __git_ps1 > /dev/null; then
+    PS1='\[\e]0;\h:\w\a\]\[\e[0;32m\]\u\[\e[0m\]@\[\e[34;1m\]\h\[\e[0m\]:\[\e[0;33m\]\W$(__git_ps1)\[\e[0m\] \$ \[\e[0m\]'
+else
+    PS1='\[\e]0;\h:\w\a\]\[\e[0;32m\]\u\[\e[0m\]@\[\e[34;1m\]\h\[\e[0m\]:\[\e[0;33m\]\W\[\e[0m\] \$ \[\e[0m\]'
+fi
+
+if [[ -z "${USER}" && -n "${USERNAME}" ]]; then
+    export USER="${USERNAME}"
+fi
+
+# pyenv
+if [[ -d ~/.pyenv ]]; then
+    export PATH="~/.pyenv/bin:$PATH"
+    eval "$(pyenv init -)"
+    eval "$(pyenv virtualenv-init -)"
+fi
+
+# rbenv
+if [[ -d ~/.rbenv ]]; then
+    export PATH="~/.rbenv/bin:$PATH"
+    eval "$(rbenv init -)"
+fi
