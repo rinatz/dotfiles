@@ -10,7 +10,6 @@
     "editor.renderControlCharacters": true,
     "editor.renderIndentGuides": true,
     "files.eol": "\n",
-    "workbench.welcome.enabled": false,
     "typescript.check.npmIsInstalled": false,
     "window.zoomLevel": 0,
     "extensions.ignoreRecommendations": true,
