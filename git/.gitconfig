@@ -5,3 +5,5 @@
     autocrlf = false
 [gui]
     encoding = utf-8
+[alias]
+    ignore = "!gi() { curl -L -s https://www.gitignore.io/api/$@ ;}; gi"
