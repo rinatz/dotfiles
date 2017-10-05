@@ -4,7 +4,9 @@ readonly REPO="https://github.com/rinatz/dotfiles.git"
 readonly DEST="${HOME}/.dotfiles"
 
 function main() {
-    git clone "${REPO}" "${DEST}"
+    if [[ ! -e "${DEST}" ]]; then
+        git clone "${REPO}" "${DEST}"
+    fi
 
     cd "${HOME}"
 
