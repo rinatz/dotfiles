@@ -2,7 +2,7 @@
 
 ## Install
 
-    $ curl -fsSL https://rinatz.github.io/dotfiles/install.sh | sh
+    $ curl -fsSL https://rinatz.github.io/dotfiles/install.sh | bash
 
 ## License
 

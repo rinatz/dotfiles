@@ -12,6 +12,9 @@ insert_final_newline = true
 [Makefile]
 indent_style = tab
 
+[{*.sh}]
+indent_size = 2
+
 [{*.rb,Vagrantfile}]
 indent_size = 2
 
