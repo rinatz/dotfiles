@@ -10,9 +10,9 @@ function main() {
     local dotfiles
     dotfiles=$(find "${DEST}" -name ".*" | grep -v windows)
 
-    for dotfile in ${dotfiles[@]}; then
+    for dotfile in ${dotfiles[@]}; do
         ln -sf "${dotfile}" "${HOME}"
-    fi
+    done
 }
 
 main "$@"
