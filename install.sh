@@ -11,7 +11,7 @@ function main() {
     dotfiles=$(find "${DEST}" -name ".*" | grep -v windows)
 
     for dotfile in ${dotfiles[@]}; do
-        [[ $(basename "${dotfile}") == ".dotfiles" ]] && continue
+        [[ $(basename "${dotfile}") == "${DEST}" ]] && continue
 
         ln -svf "${dotfile}" "${HOME}"
     done
