@@ -1,21 +1,18 @@
-#!/bin/bash -eu
+#!/bin/sh -eu
 
-readonly REPO="https://github.com/rinatz/dotfiles.git"
+readonly SRC="https://github.com/rinatz/dotfiles/archive/master.tar.gz"
 readonly DEST="${HOME}/.dotfiles"
 
 function main() {
-    if [[ ! -e "${DEST}" ]]; then
-        git clone "${REPO}" "${DEST}"
+    mkdir "${DEST}"
+    curl -fsSL "${SRC}" | tar zxv -C "${DEST}" --strip-components 1
+
+    local dotfiles
+    dotfiles=$(find "${DEST}" -name ".*")
+
+    for dotfile in ${dotfiles[@]}; then
+        ln -sf "${dotfile}" "${HOME}"
     fi
-
-    cd "${HOME}"
-
-    local files
-    files=$(find "${DEST}" -type f -name ".*" | grep -v windows)
-
-    for file in ${files[@]}; do
-        ln -sf "${file}" $(basename "${file}")
-    done
 }
 
 main "$@"
