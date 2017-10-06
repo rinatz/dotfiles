@@ -4,4 +4,4 @@ My dotfiles.
 
 ## Install
 
-    $ curl -fsSL https://goo.gl/fYLxk2 | bash
+    $ curl -fsSL http://rinatz.github.io/dotfiles/install.sh | bash
