@@ -24,7 +24,7 @@ set ruler
 
 " Configure backspace so it acts as it should act
 set backspace=eol,start,indent
-set whichwrap+=<,>,h,l
+set whichwrap+=b,s,h,l,<,>,[,]
 
 set number      " Line number
 set cursorline  " Cursor line
