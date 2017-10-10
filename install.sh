@@ -15,6 +15,8 @@ function main() {
 
     ln -svf "${dotfile}" "${HOME}"
   done
+
+  source "${HOME}/.bashrc"
 }
 
 main "$@"
