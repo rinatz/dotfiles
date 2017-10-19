@@ -1,8 +1,6 @@
 // 既定の設定を上書きするには、このファイル内に設定を挿入します
 {
     "editor.fontFamily": "Inconsolata, 'Source Han Code JP'",
-    "workbench.colorTheme": "Monokai",
-    "workbench.iconTheme": "vs-seti",
     "editor.rulers": [
         80
     ],
@@ -14,5 +12,7 @@
     "window.zoomLevel": 0,
     "extensions.ignoreRecommendations": true,
     "window.newWindowDimensions": "inherit",
-    "terminal.integrated.shell.windows": "C:\\Program Files\\Git\\bin\\bash.exe"
+    "terminal.integrated.shell.windows": "C:\\Program Files\\Git\\bin\\bash.exe",
+    "workbench.startupEditor": "newUntitledFile",
+    "editor.wordWrap": "off"
 }
