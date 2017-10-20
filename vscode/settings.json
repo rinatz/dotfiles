@@ -1,6 +1,7 @@
 // 既定の設定を上書きするには、このファイル内に設定を挿入します
 {
     "editor.fontFamily": "Inconsolata, 'Source Han Code JP'",
+    "workbench.colorTheme": "Monokai",
     "editor.rulers": [
         80
     ],
