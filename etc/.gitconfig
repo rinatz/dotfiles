@@ -1,5 +1,3 @@
-[user]
-    name = Kenichiro IDA
 [core]
     editor = vi
     autocrlf = false
