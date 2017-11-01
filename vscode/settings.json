@@ -14,5 +14,8 @@
     "window.zoomLevel": 0,
     "extensions.ignoreRecommendations": true,
     "window.newWindowDimensions": "inherit",
-    "terminal.integrated.shell.windows": "C:\\Program Files\\Git\\bin\\bash.exe"
+    "terminal.integrated.shell.windows": "C:\\Program Files\\Git\\bin\\bash.exe",
+    "files.associations": {
+        "Vagrantfile": "ruby"
+    }
 }
