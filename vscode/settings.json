@@ -16,5 +16,6 @@
     "editor.wordWrap": "off",
     "files.associations": {
         "Vagrantfile": "ruby"
-    }
+    },
+    "workbench.editor.enablePreview": false
 }
