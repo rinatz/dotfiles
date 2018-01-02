@@ -22,7 +22,8 @@ if [[ -z "${USER}" && -n "${USERNAME}" ]]; then
     export USER="${USERNAME}"
 fi
 
-if [[ -d ~/.anyenv ]]; then
-    export PATH="$HOME/.anyenv/bin:$PATH"
-    eval "$(anyenv init -)"
+if [[ -d ~/.pyenv ]]; then
+    export PYENV_ROOT=~/.pyenv
+    export PATH="${PYENV_ROOT}/bin:${PATH}"
+    eval "$(pyenv init -)"
 fi
