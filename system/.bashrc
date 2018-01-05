@@ -22,14 +22,5 @@ if [[ -z "${USER}" && -n "${USERNAME}" ]]; then
     export USER="${USERNAME}"
 fi
 
-export PYENV_ROOT="${HOME}/.pyenv"
-export PATH="${PYENV_ROOT}/bin:${PATH}"
-[[ $(command -v pyenv) ]] && eval "$(pyenv init -)"
-
-export RBENV_ROOT="${HOME}/.rbenv"
-export PATH="${RBENV_ROOT}/bin:${PATH}"
-[[ $(command -v rbenv) ]] && eval "$(rbenv init -)"
-
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+export PATH="${HOME}/.anyenv/bin:${PATH}"
+[[ $(command -v anyenv) ]] && eval "$(anyenv init -)"
