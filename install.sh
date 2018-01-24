@@ -1,19 +1,19 @@
 #!/bin/bash -eu
 
 function main() {
-  local src="https://github.com/rinatz/dotfiles/archive/master.tar.gz"
+  local url="https://github.com/rinatz/dotfiles/archive/master.tar.gz"
 
-  local dest
-  dest=$(mktemp -d /tmp/dotfiles-XXXXXX)
+  local temp
+  temp=$(mktemp -d /tmp/dotfiles-XXXXXX)
 
-  curl -fsSL "${src}" | tar zxv -C "${dest}" --strip-components 1
+  curl -fsSL "${url}" | tar zxv -C "${temp}" --strip-components 1
 
   local dotfiles
-  dotfiles=$(find "${dest}" -name ".*")
+  dotfiles=$(find "${temp}" -name ".*")
 
   for dotfile in ${dotfiles[@]}; do
-    [[ "${dotfile}" == "${dest}" ]] && continue
-    [[ "${dotfile}" == "${dest}/.git" ]] && continue
+    [[ "${dotfile}" == "${temp}" ]] && continue
+    [[ "${dotfile}" == "${temp}/.git" ]] && continue
 
     if [[ ! $(uname) =~ ^MINGW.*$ ]]; then
       [[ "${dotfile}" =~ ^.*\/windows\/.* ]] && continue
@@ -21,6 +21,8 @@ function main() {
 
     \cp -rv "${dotfile}" "${HOME}"
   done
+
+  \rm -rf "${temp}"
 }
 
 main "$@"
