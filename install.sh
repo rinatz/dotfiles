@@ -1,18 +1,19 @@
 #!/bin/bash -eu
 
-readonly SRC="https://github.com/rinatz/dotfiles/archive/master.tar.gz"
-readonly DEST="/tmp/dotfiles"
-
 function main() {
-  mkdir -p "${DEST}"
-  curl -fsSL "${SRC}" | tar zxv -C "${DEST}" --strip-components 1
+  local url="https://github.com/rinatz/dotfiles/archive/master.tar.gz"
+
+  local temp
+  temp=$(mktemp -d /tmp/dotfiles-XXXXXX)
+
+  curl -fsSL "${url}" | tar zxv -C "${temp}" --strip-components 1
 
   local dotfiles
-  dotfiles=$(find "${DEST}" -name ".*")
+  dotfiles=$(find "${temp}" -name ".*")
 
   for dotfile in ${dotfiles[@]}; do
-    [[ "${dotfile}" == "${DEST}" ]] && continue
-    [[ "${dotfile}" == "${DEST}/.git" ]] && continue
+    [[ "${dotfile}" == "${temp}" ]] && continue
+    [[ "${dotfile}" == "${temp}/.git" ]] && continue
 
     if [[ ! $(uname) =~ ^MINGW.*$ ]]; then
       [[ "${dotfile}" =~ ^.*\/windows\/.* ]] && continue
@@ -21,7 +22,7 @@ function main() {
     \cp -rv "${dotfile}" "${HOME}"
   done
 
-  rm -rf "${DEST}"
+  \rm -rf "${temp}"
 }
 
 main "$@"
