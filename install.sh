@@ -22,6 +22,11 @@ function main() {
     \cp -rv "${dotfile}" "${HOME}"
   done
 
+  if [[ $(uname) =~ ^MINGW.*$ ]]; then
+    \cp -rv "${HOME}/.config/Code" "${APPDATA}"
+    \rm -rf "${HOME}/.config/Code"
+  fi
+
   \rm -rf "${temp}"
 }
 
