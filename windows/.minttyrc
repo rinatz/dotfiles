@@ -5,4 +5,3 @@ FontHeight=12
 Columns=120
 Rows=30
 BoldAsFont=no
-Term=xterm-256color
