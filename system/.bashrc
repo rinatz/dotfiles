@@ -2,9 +2,8 @@
 # aliases
 #
 alias cp='cp -i'
-alias ls='exa'
-alias ll='exa -l'
-alias tree='exa -T'
+alias ls='ls --color=auto --show-control-chars'
+alias ll='ls -l'
 alias mv='mv -i'
 alias rm='rm -i'
 
