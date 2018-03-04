@@ -71,9 +71,9 @@ set noautoindent    " Turn off auto indent
 set nosmartindent   " Turn off smart indent
 set nowrap          " Turn off wrap line
 
-""""""""""""""""""""""""""""""
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Status line
-""""""""""""""""""""""""""""""
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Always show the status line
 set laststatus=2
 
