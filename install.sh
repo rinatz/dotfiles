@@ -47,7 +47,7 @@ function main() {
   done
 
   mkdir -p $(vscode_location)
-  \cp -rv vscode/settings.json $(vscode_location)
+  \cp -rv "${temp}/vscode/settings.json" $(vscode_location)
 
   \rm -rf "${temp}"
 }
