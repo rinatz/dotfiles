@@ -1,5 +1,29 @@
 #!/bin/bash -eu
 
+function os_name() {
+  if [[ $(uname) =~ ^MINGW.*$ ]]; then
+    echo "Windows"
+  elif [[ $(uname) =~ Darwin ]]; then
+    echo "macOS"
+  elif [[ $(uname) =~ Linux ]]; then
+    echo "Linux"
+  else
+    echo ""
+  fi
+}
+
+function vscode_location() {
+  if [[ $(os_name) = "Windows" ]]; then
+    echo "${APPDATA}/Code/User"
+  elif [[ $(os_name) = "macOS" ]]; then
+    echo "${HOME}/Library/Application\ Support/Code/User"
+  elif [[ $(os_name) = "Linux" ]]; then
+    echo "${HOME}/.config/Code/User"
+  else
+    echo ""
+  fi
+}
+
 function main() {
   local url="https://github.com/rinatz/dotfiles/archive/master.tar.gz"
 
@@ -22,10 +46,7 @@ function main() {
     \cp -rv "${dotfile}" "${HOME}"
   done
 
-  if [[ $(uname) =~ ^MINGW.*$ ]]; then
-    \cp -rv "${HOME}/.config/Code" "${APPDATA}"
-    \rm -rf "${HOME}/.config/Code"
-  fi
+  \cp -rv vscode/settings.json $(vscode_location)
 
   \rm -rf "${temp}"
 }
