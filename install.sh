@@ -1,27 +1,27 @@
 #!/bin/bash -eu
 
-function os_name() {
-  if [[ $(uname) =~ ^MINGW.*$ ]]; then
-    echo "Windows"
-  elif [[ $(uname) =~ Darwin ]]; then
-    echo "macOS"
-  elif [[ $(uname) =~ Linux ]]; then
-    echo "Linux"
-  else
-    echo ""
-  fi
+function platform() {
+  local os
+  os=$(uname)
+
+  case "${os}" in
+    MINGW*) echo "Windows" ;;
+    Darwin*) echo "macOS" ;;
+    Linux*) echo "Linux" ;;
+    *) echo "" ;;
+  esac
 }
 
 function vscode_location() {
-  if [[ $(os_name) = "Windows" ]]; then
-    echo "${APPDATA}/Code/User"
-  elif [[ $(os_name) = "macOS" ]]; then
-    echo "${HOME}/Library/Application\ Support/Code/User"
-  elif [[ $(os_name) = "Linux" ]]; then
-    echo "${HOME}/.config/Code/User"
-  else
-    echo ""
-  fi
+  local os
+  os=$(platform)
+
+  case "${os}" in
+    Windows) echo "${APPDATA}/Code/User" ;;
+    macOS) echo "${HOME}/Library/Application\ Support/Code/User" ;;
+    Linux) echo "${HOME}/.config/Code/User" ;;
+    *) echo "" ;;
+  esac
 }
 
 function main() {
@@ -39,7 +39,7 @@ function main() {
     [[ "${dotfile}" == "${temp}" ]] && continue
     [[ "${dotfile}" == "${temp}/.git" ]] && continue
 
-    if [[ ! $(uname) =~ ^MINGW.*$ ]]; then
+    if [[ $(platform) != "Windows" ]]; then
       [[ "${dotfile}" =~ ^.*\/windows\/.* ]] && continue
     fi
 
