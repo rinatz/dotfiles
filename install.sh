@@ -36,9 +36,6 @@ function main() {
   dotfiles=$(find "${temp}" -name ".*")
 
   for dotfile in ${dotfiles[@]}; do
-    [[ "${dotfile}" == "${temp}" ]] && continue
-    [[ "${dotfile}" == "${temp}/.git" ]] && continue
-
     if [[ $(platform) != "Windows" ]]; then
       [[ "${dotfile}" =~ ^.*\/windows\/.* ]] && continue
     fi
