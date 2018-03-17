@@ -4,10 +4,7 @@
 alias cp='cp -i'
 alias mv='mv -i'
 alias rm='rm -i'
-alias exa='exa --time-style long-iso'
-alias ls='exa'
-alias ll='exa -l'
-alias tree='exa -T'
+alias ll='ls -l'
 
 #
 # completions
