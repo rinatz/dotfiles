@@ -2,7 +2,7 @@
 
 ## Install
 
-    $ curl -L git.io/rinatz.sh | bash
+    $ curl -L bit.ly/rinatz-sh | bash
 
 ## License
 
