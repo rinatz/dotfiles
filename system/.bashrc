@@ -37,7 +37,7 @@ fi
 # anyenv
 #
 export PATH="${HOME}/.anyenv/bin:${PATH}"
-[[ $(command -v anyenv) ]] && eval "$(anyenv init -)"
+[[ -n "$(command -v anyenv)" ]] && eval "$(anyenv init -)"
 
 #
 # share history
