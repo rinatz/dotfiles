@@ -17,5 +17,6 @@
     "files.associations": {
         "Vagrantfile": "ruby"
     },
-    "workbench.editor.enablePreview": false
+    "workbench.editor.enablePreview": false,
+    "workbench.colorTheme": "Monokai"
 }
