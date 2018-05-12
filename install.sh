@@ -34,7 +34,7 @@ function main() {
   local dotfiles
   dotfiles=$(find "${temp}" -name ".*")
 
-  for dotfile in ${dotfiles[@]}; do
+  for dotfile in ${dotfiles}; do
     if [[ $(platform) != "Windows" ]]; then
       [[ "${dotfile}" =~ ^.*\/windows\/.* ]] && continue
     fi
