@@ -4,7 +4,7 @@
 alias cp='cp -i'
 alias mv='mv -i'
 alias rm='rm -i'
-alias ll='ls -l'
+alias ll='ls -lF'
 
 #
 # completions
@@ -25,19 +25,6 @@ if type -t __git_ps1 > /dev/null; then
 else
     PS1='\[\e]0;\h:\w\a\]\[\e[0;32m\]\u\[\e[0m\]@\[\e[34;1m\]\h\[\e[0m\]:\[\e[0;33m\]\W\[\e[0m\] \$ \[\e[0m\]'
 fi
-
-#
-# USER
-#
-if [[ -z "${USER}" && -n "${USERNAME}" ]]; then
-    export USER="${USERNAME}"
-fi
-
-#
-# anyenv
-#
-export PATH="${HOME}/.anyenv/bin:${PATH}"
-[[ -n "$(command -v anyenv)" ]] && eval "$(anyenv init -)"
 
 #
 # share history
