@@ -1,11 +1,13 @@
 #!/bin/bash -eu
 
 function platform() {
-  local os
-  os=$(uname)
+  local system
+  system=$(uname)
 
-  case "${os}" in
+  case "${system}" in
     MINGW*) echo "Windows" ;;
+    MSYS*) echo "Windows" ;;
+    CYGWIN*) echo "Windows" ;;
     Darwin*) echo "macOS" ;;
     Linux*) echo "Linux" ;;
     *) echo "" ;;
@@ -13,10 +15,7 @@ function platform() {
 }
 
 function vscode_location() {
-  local os
-  os=$(platform)
-
-  case "${os}" in
+  case "$(platform)" in
     Windows) echo "${APPDATA}/Code/User" ;;
     macOS) echo "${HOME}/Library/Application\ Support/Code/User" ;;
     Linux) echo "${HOME}/.config/Code/User" ;;
