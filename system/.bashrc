@@ -4,7 +4,12 @@
 alias cp='cp -i'
 alias mv='mv -i'
 alias rm='rm -i'
-alias ll='ls -lF'
+
+if which exa > /dev/null; then
+    alias ls='exa'
+fi
+
+alias ll='ls -lFA'
 
 #
 # completions
