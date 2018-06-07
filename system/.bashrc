@@ -5,7 +5,7 @@ alias cp='cp -i'
 alias mv='mv -i'
 alias rm='rm -i'
 
-if which exa > /dev/null; then
+if type -t exa > /dev/null; then
     alias ls='exa'
 fi
 
