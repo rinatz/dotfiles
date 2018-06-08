@@ -7,7 +7,7 @@ alias rm='rm -i'
 
 if type exa &> /dev/null; then
     alias ls='exa'
-    alias ll='exa -lF --time-style=long-iso'
+    alias ll='exa -lhF --time-style=long-iso --git'
 else
     alias ll='ls -lFA'
 fi
