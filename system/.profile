@@ -15,7 +15,9 @@ fi
 # anyenv
 #
 export PATH="${HOME}/.anyenv/bin:${PATH}"
-[[ -n "$(command -v anyenv)" ]] && eval "$(anyenv init -)"
+if type anyenv &> /dev/null; then
+    eval "$(anyenv init -)"
+fi
 
 #
 # ubuntu-make

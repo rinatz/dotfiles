@@ -24,12 +24,22 @@ if ! shopt -oq posix; then
 fi
 
 #
-# git
+# PS1
 #
-if type -t __git_ps1 > /dev/null; then
+if type __git_ps1 &> /dev/null; then
     PS1='\[\e]0;\h:\w\a\]\[\e[0;32m\]\u\[\e[0m\]@\[\e[34;1m\]\h\[\e[0m\]:\[\e[0;33m\]\W$(__git_ps1)\[\e[0m\] \$ \[\e[0m\]'
 else
     PS1='\[\e]0;\h:\w\a\]\[\e[0;32m\]\u\[\e[0m\]@\[\e[34;1m\]\h\[\e[0m\]:\[\e[0;33m\]\W\[\e[0m\] \$ \[\e[0m\]'
+fi
+
+#
+# Base16 Shell
+#
+BASE16_SHELL="${HOME}/.config/base16-shell"
+if [[ -n "${PS1}" ]]; then
+    if [[ -s "${BASE16_SHELL}/profile_helper.sh" ]]; then
+        eval "$("${BASE16_SHELL}/profile_helper.sh")"
+    fi
 fi
 
 #
@@ -42,3 +52,10 @@ function share_history {
 }
 PROMPT_COMMAND='share_history'
 shopt -u histappend
+
+#
+# direnv
+#
+if type direnv &> /dev/null; then
+    eval "$(direnv hook bash)"
+fi
