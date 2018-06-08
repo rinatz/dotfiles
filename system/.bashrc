@@ -5,7 +5,7 @@ alias cp='cp -i'
 alias mv='mv -i'
 alias rm='rm -i'
 
-if type -t exa > /dev/null; then
+if type exa &> /dev/null; then
     alias ls='exa'
     alias ll='exa -lF --time-style=long-iso'
 else
