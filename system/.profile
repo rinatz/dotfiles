@@ -12,14 +12,6 @@ if [[ -z "${USER}" && -n "${USERNAME}" ]]; then
 fi
 
 #
-# anyenv
-#
-export PATH="${HOME}/.anyenv/bin:${PATH}"
-if type anyenv &> /dev/null; then
-    eval "$(anyenv init -)"
-fi
-
-#
 # ubuntu-make
 #
 export PATH="${HOME}/.local/share/umake/bin:${PATH}"

@@ -44,6 +44,14 @@ PROMPT_COMMAND='share_history'
 shopt -u histappend
 
 #
+# anyenv
+#
+export PATH="${HOME}/.anyenv/bin:${PATH}"
+if type anyenv &> /dev/null; then
+    eval "$(anyenv init -)"
+fi
+
+#
 # direnv
 #
 if type direnv &> /dev/null; then
