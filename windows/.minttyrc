@@ -1,9 +1,9 @@
-Transparency=medium
+Transparency=low
 CursorType=block
 Font=Inconsolata
 FontHeight=12
 Columns=100
 Rows=25
 BoldAsFont=no
-ThemeFile=flat-ui
 Term=xterm-256color
+ThemeFile=nord
