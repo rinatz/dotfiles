@@ -7,10 +7,9 @@ alias rm='rm -i'
 
 if type exa &> /dev/null; then
     alias ls='exa'
-    alias ll='exa -lhF --time-style=long-iso'
-else
-    alias ll='ls -lFA'
 fi
+
+alias ll='ls -lhF --time-style=long-iso'
 
 #
 # completions
