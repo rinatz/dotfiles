@@ -16,6 +16,8 @@ else
     alias ll='ls -lFA'
 fi
 
+alias ll='ls -lhF --time-style=long-iso'
+
 #
 # completions
 #
