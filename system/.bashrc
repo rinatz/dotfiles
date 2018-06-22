@@ -4,11 +4,15 @@
 alias cp='cp -i'
 alias mv='mv -i'
 alias rm='rm -i'
+alias less='less -R'
+alias find='find --color=always'
+alias fd='fd --color=always'
 
 if type exa &> /dev/null; then
-    alias ls='exa'
+    alias ls='exa --color=always'
     alias ll='exa -lhF --time-style=long-iso'
 else
+    alias ls='ls --color=always'
     alias ll='ls -lFA'
 fi
 
