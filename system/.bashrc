@@ -5,7 +5,6 @@ alias cp='cp -i'
 alias mv='mv -i'
 alias rm='rm -i'
 alias less='less -R'
-alias fd='fd --color=always'
 
 if type exa &> /dev/null; then
     alias ls='exa --color=always'
