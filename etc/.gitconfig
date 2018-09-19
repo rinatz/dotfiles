@@ -1,11 +1,16 @@
 [core]
-    editor = vi
-    autocrlf = false
+	editor = vi
+	autocrlf = false
 [gui]
-    encoding = utf-8
+	encoding = utf-8
 [diff]
-    tool = meld
+	tool = meld
 [alias]
-    ignore = "!gi() { curl -L -s https://www.gitignore.io/api/$@ ;}; gi"
+	ignore = "!gi() { curl -L -s https://www.gitignore.io/api/$@ ;}; gi"
+	get = !ghq get
+	list = !ghq list
+	cd = !ghq look $(ghq list | peco)
 [ssh]
-    variant = ssh
+	variant = ssh
+[ghq]
+	root = ~/Documents
