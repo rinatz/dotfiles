@@ -1,8 +1,9 @@
 {
     "editor.fontFamily": "Inconsolata, Noto Sans Mono CJK JP",
-    "editor.rulers": [
-        80
-    ],
+    "editor.rulers": [80],
+    "[rust]": {
+        "editor.rulers": [100]
+    },
     "editor.renderWhitespace": "boundary",
     "editor.renderControlCharacters": true,
     "editor.renderIndentGuides": true,
