@@ -2,7 +2,7 @@
 
 ## Install
 
-    $ curl -L bit.ly/get-rinatz-dotfiles | bash
+    $ curl https://raw.githubusercontent.com/rinatz/dotfiles/master/get-dotfiles.sh | bash
 
 ## License
 
