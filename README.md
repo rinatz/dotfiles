@@ -2,7 +2,7 @@
 
 ## Install
 
-    $ curl http://bit.ly/rinatz-dotfiles | bash
+    $ curl -L http://bit.ly/rinatz-dotfiles | bash
 
 ## License
 
