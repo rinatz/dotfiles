@@ -1,4 +1,6 @@
-![dotfiles](dotfiles-logo.png)
+<div align="center">
+    <img src="dotfiles-logo.png">
+</div>
 
 ## Install
 
