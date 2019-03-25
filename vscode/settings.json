@@ -19,5 +19,6 @@
         "Vagrantfile": "ruby"
     },
     "workbench.editor.enablePreview": false,
-    "workbench.colorTheme": "Monokai"
+    "workbench.colorTheme": "Monokai",
+    "window.titleBarStyle": "custom"
 }
