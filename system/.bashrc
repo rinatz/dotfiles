@@ -9,7 +9,7 @@ if type exa &> /dev/null; then
     alias ls='exa'
     alias ll='exa -lhF --time-style=long-iso'
 else
-    alias ll='ls -lFA'
+    alias ll='ls -lhF'
 fi
 
 #
