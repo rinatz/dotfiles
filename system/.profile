@@ -10,8 +10,3 @@ export IBUS_ENABLE_SYNC_MODE=1
 if [[ -z "${USER}" && -n "${USERNAME}" ]]; then
     export USER="${USERNAME}"
 fi
-
-#
-# ubuntu-make
-#
-export PATH="${HOME}/.local/share/umake/bin:${PATH}"
