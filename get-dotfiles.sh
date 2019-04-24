@@ -18,7 +18,7 @@ function platform() {
 function vscode_location() {
   case "$(platform)" in
     Windows) echo "${APPDATA}/Code/User" ;;
-    macOS) echo "${HOME}/Library/Application\ Support/Code/User" ;;
+    macOS) echo "${HOME}/Library/Application Support/Code/User" ;;
     Linux) echo "${HOME}/.config/Code/User" ;;
     *) echo "" ;;
   esac
@@ -43,8 +43,8 @@ function main() {
     \cp -rv "${dotfile}" "${HOME}"
   done
 
-  mkdir -p $(vscode_location)
-  \cp -rv "${temp}/vscode/settings.json" $(vscode_location)
+  mkdir -p "$(vscode_location)"
+  \cp -rv "${temp}/vscode/settings.json" "$(vscode_location)"
 
   \rm -rf "${temp}"
 }
