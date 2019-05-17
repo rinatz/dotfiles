@@ -46,7 +46,7 @@ shopt -u histappend
 #
 # anyenv
 #
-export PATH="${HOME}/.anyenv/bin:${PATH}"
+export PATH="~/.anyenv/bin:${PATH}"
 if type anyenv &> /dev/null; then
     eval "$(anyenv init -)"
 fi
