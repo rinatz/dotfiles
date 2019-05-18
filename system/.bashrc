@@ -4,6 +4,7 @@
 alias cp='cp -i'
 alias mv='mv -i'
 alias rm='rm -i'
+alias sshcode='sshcode -skipsync'
 
 if type exa &> /dev/null; then
     alias ls='exa'
