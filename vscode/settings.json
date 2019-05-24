@@ -22,5 +22,6 @@
     },
     "workbench.editor.enablePreview": false,
     "workbench.colorTheme": "Monokai",
-    "window.titleBarStyle": "custom"
+    "window.titleBarStyle": "custom",
+    "files.autoSave": "afterDelay"
 }
