@@ -7,9 +7,6 @@
 	tool = meld
 [alias]
 	ignore = "!gi() { curl -L -s https://www.gitignore.io/api/$@ ;}; gi"
-	get = !ghq get
-	list = !ghq list
-	cd = !ghq look $(ghq list | fzf)
 [ssh]
 	variant = ssh
 [ghq]

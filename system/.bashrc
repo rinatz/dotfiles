@@ -58,3 +58,16 @@ fi
 if type direnv &> /dev/null; then
     eval "$(direnv hook bash)"
 fi
+
+#
+# fzf
+#
+if [[ -f "${HOME}/.fzf.bash" ]]; then
+    source "${HOME}/.fzf.bash"
+
+    function __fzf_ghq_look__() {
+        local dir
+        dir="$(ghq list | fzf)" && cd "$(ghq root)/${dir}"
+    }
+    bind -x '"\C-g": __fzf_ghq_look__'
+fi
