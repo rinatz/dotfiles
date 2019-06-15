@@ -5,7 +5,6 @@ alias cp='cp -i'
 alias mv='mv -i'
 alias rm='rm -i'
 alias sshcode='sshcode -skipsync'
-
 if type exa &> /dev/null; then
     alias ls='exa'
     alias ll='exa -lhF --time-style=long-iso'
@@ -58,6 +57,11 @@ fi
 if type direnv &> /dev/null; then
     eval "$(direnv hook bash)"
 fi
+
+#
+# pipenv
+#
+export PIPENV_VENV_IN_PROJECT=1
 
 #
 # fzf
