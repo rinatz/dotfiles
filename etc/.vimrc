@@ -1,5 +1,5 @@
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => General
+" General
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Turn off vi compatible mode
 set nocompatible
@@ -11,7 +11,7 @@ set shortmess+=I
 set autoread
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => VIM user interface
+" VIM user interface
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Set 7 lines to the cursor - when moving vertically using j/k
 set so=7
@@ -30,7 +30,7 @@ set number      " Line number
 set cursorline  " Cursor line
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => Colors and Fonts
+" Colors and Fonts
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " LF or CR/LF
 set fileformats=unix,dos,mac
@@ -45,8 +45,11 @@ else
     set termencoding=utf-8
 endif
 
+" Syntax highlight
+syntax on
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => Files, backups and undo
+" Files, backups and undo
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Turn backup off
 set nobackup
@@ -58,7 +61,7 @@ set list
 set listchars=tab:>>,trail:.
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => Text, tab and indent related
+" Text, tab and indent related
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Use spaces instead of tabs
 set expandtab
@@ -72,7 +75,7 @@ set nosmartindent   " Turn off smart indent
 set nowrap          " Turn off wrap line
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => Status line
+" Status line
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Always show the status line
 set laststatus=2
