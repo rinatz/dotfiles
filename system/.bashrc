@@ -35,12 +35,12 @@ fi
 #
 # share history
 #
-function share_history {
+function __share_history__() {
     history -a
     history -c
     history -r
 }
-PROMPT_COMMAND='share_history'
+PROMPT_COMMAND='__share_history__'
 shopt -u histappend
 
 #
