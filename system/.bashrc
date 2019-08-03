@@ -69,9 +69,11 @@ export PIPENV_VENV_IN_PROJECT=1
 if [[ -f "${HOME}/.fzf.bash" ]]; then
     source "${HOME}/.fzf.bash"
 
-    function __fzf_ghq_look__() {
-        local dir
-        dir="$(ghq list | fzf)" && cd "$(ghq root)/${dir}"
-    }
-    bind -x '"\C-g": __fzf_ghq_look__'
+    if [[ -t 1 ]]; then
+        function __fzf_ghq_look__() {
+            local dir
+            dir="$(ghq list | fzf)" && cd "$(ghq root)/${dir}"
+        }
+        bind -x '"\C-g": __fzf_ghq_look__'
+    fi
 fi
