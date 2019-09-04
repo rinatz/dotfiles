@@ -4,7 +4,7 @@
 alias cp='cp -i'
 alias mv='mv -i'
 alias rm='rm -i'
-alias sshcode='sshcode -skipsync'
+
 if type exa &> /dev/null; then
     alias ls='exa'
     alias ll='exa -lhF --time-style=long-iso'
@@ -26,11 +26,16 @@ fi
 #
 # PS1
 #
-if type __git_ps1 &> /dev/null; then
-    PS1='\[\e]0;\h:\w\a\]\[\e[0;32m\]\u\[\e[0m\]@\[\e[34;1m\]\h\[\e[0m\]:\[\e[0;33m\]\W$(__git_ps1)\[\e[0m\] \$ \[\e[0m\]'
-else
-    PS1='\[\e]0;\h:\w\a\]\[\e[0;32m\]\u\[\e[0m\]@\[\e[34;1m\]\h\[\e[0m\]:\[\e[0;33m\]\W\[\e[0m\] \$ \[\e[0m\]'
-fi
+function __ps1__() {
+    local git_ps1=
+
+    if type __git_ps1 &> /dev/null; then
+        git_ps1='$(__git_ps1)'
+    fi
+
+    echo '\[\e]0;\h:\w\a\]\[\e[0;32m\]\u\[\e[0m\]@\[\e[34;1m\]\h\[\e[0m\]:\[\e[0;33m\]\W'"${git_ps1}"'\[\e[0m\] \$ \[\e[0m\]'
+}
+PS1=$(__ps1__)
 
 #
 # share history
@@ -59,11 +64,6 @@ if type direnv &> /dev/null; then
 fi
 
 #
-# pipenv
-#
-export PIPENV_VENV_IN_PROJECT=1
-
-#
 # fzf
 #
 if [[ -f "${HOME}/.fzf.bash" ]]; then
@@ -77,3 +77,8 @@ if [[ -f "${HOME}/.fzf.bash" ]]; then
         bind -x '"\C-g": __fzf_ghq_look__'
     fi
 fi
+
+#
+# pipenv
+#
+export PIPENV_VENV_IN_PROJECT=1
