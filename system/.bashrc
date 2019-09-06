@@ -49,21 +49,6 @@ PROMPT_COMMAND='__share_history__'
 shopt -u histappend
 
 #
-# anyenv
-#
-export PATH="${HOME}/.anyenv/bin:${PATH}"
-if type anyenv &> /dev/null; then
-    eval "$(anyenv init -)"
-fi
-
-#
-# direnv
-#
-if type direnv &> /dev/null; then
-    eval "$(direnv hook bash)"
-fi
-
-#
 # fzf
 #
 if [[ -f "${HOME}/.fzf.bash" ]]; then
@@ -76,6 +61,21 @@ if [[ -f "${HOME}/.fzf.bash" ]]; then
         }
         bind -x '"\C-g": __fzf_ghq_look__'
     fi
+fi
+
+#
+# direnv
+#
+if type direnv &> /dev/null; then
+    eval "$(direnv hook bash)"
+fi
+
+#
+# anyenv
+#
+export PATH="${HOME}/.anyenv/bin:${PATH}"
+if type anyenv &> /dev/null; then
+    eval "$(anyenv init -)"
 fi
 
 #
