@@ -40,11 +40,11 @@ function main() {
       [[ "${dotfile}" =~ ^.*\/windows\/.* ]] && continue
     fi
 
-    \cp -rv "${dotfile}" "${HOME}"
+    \cp -rfv "${dotfile}" "${HOME}"
   done
 
   mkdir -p "$(vscode_location)"
-  \cp -rv "${temp}/vscode/settings.json" "$(vscode_location)"
+  \cp -rfv "${temp}/vscode/settings.json" "$(vscode_location)"
 
   \rm -rf "${temp}"
 }
