@@ -15,20 +15,24 @@ fi
 #
 # completions
 #
-[[ -f '/etc/profile' ]] && . /etc/profile
+[[ -r /etc/profile ]] && . /etc/profile
 
-if [[ -f '/usr/share/bash-completion/bash_completion' ]]; then
-    . '/usr/share/bash-completion/bash_completion'
-elif [[ -f '/etc/bash_completion' ]]; then
-    . '/etc/bash_completion'
-elif [[ -r '/usr/local/etc/profile.d/bash_completion.sh' ]]; then
-    . '/usr/local/etc/profile.d/bash_completion.sh'
+if [[ -r /usr/share/bash-completion/bash_completion ]]; then
+    . /usr/share/bash-completion/bash_completion
+elif [[ -r /etc/bash_completion ]]; then
+    . /etc/bash_completion
+elif [[ -r /usr/local/etc/profile.d/bash_completion.sh ]]; then
+    . /usr/local/etc/profile.d/bash_completion.sh
 fi
 
 #
 # PS1
 #
 function __ps1__() {
+    if [[ -r /usr/share/git-core/contrib/completion/git-prompt.sh ]]; then
+        . /usr/share/git-core/contrib/completion/git-prompt.sh
+    fi
+
     local git_ps1=
 
     if type __git_ps1 &> /dev/null; then
