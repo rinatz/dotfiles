@@ -25,23 +25,18 @@ elif [[ -r /usr/local/etc/profile.d/bash_completion.sh ]]; then
     . /usr/local/etc/profile.d/bash_completion.sh
 fi
 
+if [[ -r /usr/share/git-core/contrib/completion/git-prompt.sh ]]; then
+    . /usr/share/git-core/contrib/completion/git-prompt.sh
+fi
+
 #
 # PS1
 #
-function __ps1__() {
-    if [[ -r /usr/share/git-core/contrib/completion/git-prompt.sh ]]; then
-        . /usr/share/git-core/contrib/completion/git-prompt.sh
-    fi
-
-    local git_ps1=
-
-    if type __git_ps1 &> /dev/null; then
-        git_ps1='$(__git_ps1)'
-    fi
-
-    echo '\[\e]0;\h:\w\a\]\[\e[0;32m\]\u\[\e[0m\]@\[\e[34;1m\]\h\[\e[0m\]:\[\e[0;33m\]\W'"${git_ps1}"'\[\e[0m\] \$ \[\e[0m\]'
-}
-PS1=$(__ps1__)
+if type __git_ps1 &> /dev/null; then
+    PS1="\[\e]0;\h:\w\a\]\[\e[0;32m\]\u\[\e[0m\]@\[\e[34;1m\]\h\[\e[0m\]:\[\e[0;33m\]\W$(__git_ps1)\[\e[0m\] \$ \[\e[0m\]"
+else
+    PS1="\[\e]0;\h:\w\a\]\[\e[0;32m\]\u\[\e[0m\]@\[\e[34;1m\]\h\[\e[0m\]:\[\e[0;33m\]\W\[\e[0m\] \$ \[\e[0m\]"
+fi
 
 #
 # share history
