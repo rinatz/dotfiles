@@ -72,11 +72,12 @@ if type direnv &> /dev/null; then
 fi
 
 #
-# anyenv
+# pyenv
 #
-export PATH="${HOME}/.anyenv/bin:${PATH}"
-if type anyenv &> /dev/null; then
-    eval "$(anyenv init -)"
+export PYENV_ROOT="${HOME}/.pyenv"
+export PATH="${PYENV_ROOT}/bin:${PATH}"
+if type pyenv &> /dev/null; then
+    eval "$(pyenv init -)"
 fi
 
 #
