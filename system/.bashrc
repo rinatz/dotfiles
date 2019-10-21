@@ -15,17 +15,19 @@ fi
 #
 # completions
 #
-[[ -r /etc/profile ]] && . /etc/profile
+if [[ -f /etc/profile ]]; then
+    . /etc/profile
+fi
 
-if [[ -r /usr/share/bash-completion/bash_completion ]]; then
+if [[ -f /usr/share/bash-completion/bash_completion ]]; then
     . /usr/share/bash-completion/bash_completion
-elif [[ -r /etc/bash_completion ]]; then
+elif [[ -f /etc/bash_completion ]]; then
     . /etc/bash_completion
-elif [[ -r /usr/local/etc/profile.d/bash_completion.sh ]]; then
+elif [[ -f /usr/local/etc/profile.d/bash_completion.sh ]]; then
     . /usr/local/etc/profile.d/bash_completion.sh
 fi
 
-if [[ -r /usr/share/git-core/contrib/completion/git-prompt.sh ]]; then
+if [[ -f /usr/share/git-core/contrib/completion/git-prompt.sh ]]; then
     . /usr/share/git-core/contrib/completion/git-prompt.sh
 fi
 
@@ -53,7 +55,7 @@ shopt -u histappend
 # fzf
 #
 if [[ -f "${HOME}/.fzf.bash" ]]; then
-    source "${HOME}/.fzf.bash"
+    . "${HOME}/.fzf.bash"
 
     if [[ -t 1 ]]; then
         function __fzf_ghq_look__() {
@@ -75,8 +77,9 @@ fi
 # pyenv
 #
 export PYENV_ROOT="${HOME}/.pyenv"
-export PATH="${PYENV_ROOT}/bin:${PATH}"
-if type pyenv &> /dev/null; then
+
+if [[ -d "${PYENV_ROOT}" ]]; then
+    export PATH="${PYENV_ROOT}/bin:${PATH}"
     eval "$(pyenv init -)"
 fi
 
