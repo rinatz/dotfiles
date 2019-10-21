@@ -76,10 +76,8 @@ fi
 #
 # pyenv
 #
-export PYENV_ROOT="${HOME}/.pyenv"
-
-if [[ -d "${PYENV_ROOT}" ]]; then
-    export PATH="${PYENV_ROOT}/bin:${PATH}"
+if [[ -d "${HOME}/.pyenv" ]]; then
+    export PATH="${HOME}/.pyenv/bin:${PATH}"
     eval "$(pyenv init -)"
 fi
 
@@ -87,3 +85,17 @@ fi
 # pipenv
 #
 export PIPENV_VENV_IN_PROJECT=1
+
+#
+# sdkman
+#
+if [[ -d "${HOME}/.sdkman" ]]; then
+    . "${HOME}/.sdkman/bin/sdkman-init.sh"
+fi
+
+#
+# rustup
+#
+if [[ -d "${HOME}/.cargo" ]]; then
+    . "${HOME}/.cargo/env"
+fi
