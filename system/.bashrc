@@ -89,13 +89,26 @@ export PIPENV_VENV_IN_PROJECT=1
 #
 # sdkman
 #
-if [[ -d "${HOME}/.sdkman" ]]; then
+if [[ -f "${HOME}/.sdkman/bin/sdkman-init.sh" ]]; then
     . "${HOME}/.sdkman/bin/sdkman-init.sh"
 fi
 
 #
 # rustup
 #
-if [[ -d "${HOME}/.cargo" ]]; then
+if [[ -f "${HOME}/.cargo/env" ]]; then
     . "${HOME}/.cargo/env"
+fi
+
+#
+# nvm
+#
+export NVM_DIR="${HOME}/.nvm"
+
+if [[ -f "${NVM_DIR}/nvm.sh" ]]; then
+    . "${NVM_DIR}/nvm.sh"
+fi
+
+if [[ -f "${NVM_DIR}/bash_completion" ]]; then
+    . "${NVM_DIR}/bash_completion"
 fi
