@@ -74,17 +74,16 @@ if type direnv &> /dev/null; then
 fi
 
 #
-# pyenv
+# python
 #
 if [[ -d "${HOME}/.pyenv" ]]; then
     export PATH="${HOME}/.pyenv/bin:${PATH}"
     eval "$(pyenv init -)"
 fi
 
-#
-# pipenv
-#
-export PIPENV_VENV_IN_PROJECT=1
+if [[ -f "${HOME}/.poetry/env" ]]; then
+    . "${HOME}/.poetry/env"
+fi
 
 #
 # sdkman
