@@ -111,3 +111,9 @@ fi
 if [[ -f "${NVM_DIR}/bash_completion" ]]; then
     . "${NVM_DIR}/bash_completion"
 fi
+
+#
+# go
+#
+export GOPATH="${HOME}/go"
+alias http="${GOPATH}/bin/bat"
