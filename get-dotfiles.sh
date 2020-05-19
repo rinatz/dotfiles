@@ -1,25 +1,25 @@
 #!/bin/bash
 set -eu
 
-function platform() {
-  local system
-  system=$(uname)
+alias rm="\rm"
+alias cp="\cp"
 
-  case "${system}" in
-    MINGW*) echo "Windows" ;;
-    MSYS*) echo "Windows" ;;
-    CYGWIN*) echo "Windows" ;;
-    Darwin*) echo "macOS" ;;
-    Linux*) echo "Linux" ;;
+function target_os() {
+  case uname in
+    MINGW*) echo "windows" ;;
+    MSYS*) echo "windows" ;;
+    CYGWIN*) echo "windows" ;;
+    Darwin*) echo "macos" ;;
+    Linux*) echo "linux" ;;
     *) echo "" ;;
   esac
 }
 
-function vscode_location() {
-  case "$(platform)" in
-    Windows) echo "${APPDATA}/Code/User" ;;
-    macOS) echo "${HOME}/Library/Application Support/Code/User" ;;
-    Linux) echo "${HOME}/.config/Code/User" ;;
+function vscode_home() {
+  case target_os in
+    windows) echo "${APPDATA}/Code/User" ;;
+    macos) echo "${HOME}/Library/Application Support/Code/User" ;;
+    linux) echo "${HOME}/.config/Code/User" ;;
     *) echo "" ;;
   esac
 }
@@ -36,17 +36,17 @@ function main() {
   dotfiles=$(find "${temp}" -name ".*")
 
   for dotfile in ${dotfiles}; do
-    if [[ $(platform) != "Windows" ]]; then
+    if [[ $(target_os) != "windows" ]]; then
       [[ "${dotfile}" =~ ^.*\/windows\/.* ]] && continue
     fi
 
-    \cp -rfv "${dotfile}" "${HOME}"
+    cp -rfv "${dotfile}" "${HOME}"
   done
 
-  mkdir -p "$(vscode_location)"
-  \cp -rfv "${temp}/vscode/settings.json" "$(vscode_location)"
+  mkdir -p "$(vscode_home)"
+  cp -rfv "${temp}/vscode/settings.json" "$(vscode_home)"
 
-  \rm -rf "${temp}"
+  rm -rf "${temp}"
 }
 
 main "$@"
