@@ -5,7 +5,7 @@ alias rm="\rm"
 alias cp="\cp"
 
 function target_os() {
-  case uname in
+  case $(uname) in
     MINGW*) echo "windows" ;;
     MSYS*) echo "windows" ;;
     CYGWIN*) echo "windows" ;;
@@ -16,7 +16,7 @@ function target_os() {
 }
 
 function vscode_home() {
-  case target_os in
+  case $(target_os) in
     windows) echo "${APPDATA}/Code/User" ;;
     macos) echo "${HOME}/Library/Application Support/Code/User" ;;
     linux) echo "${HOME}/.config/Code/User" ;;
