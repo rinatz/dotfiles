@@ -41,17 +41,6 @@ else
 fi
 
 #
-# share history
-#
-function __share_history__() {
-    history -a
-    history -c
-    history -r
-}
-PROMPT_COMMAND='__share_history__'
-shopt -u histappend
-
-#
 # fzf
 #
 if [[ -f "${HOME}/.fzf.bash" ]]; then
@@ -116,4 +105,3 @@ fi
 # go
 #
 export GOPATH="${HOME}/go"
-alias http="${GOPATH}/bin/bat"
