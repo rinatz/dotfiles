@@ -16,7 +16,7 @@ indent_style = tab
 indent_style = tab
 
 [*.sh]
-indent_size = 2
+indent_size = 4
 
 [{*.rb,Vagrantfile}]
 indent_size = 2
