@@ -3,8 +3,6 @@
 	autocrlf = false
 [gui]
 	encoding = utf-8
-[diff]
-	tool = meld
 [alias]
 	ignore = "!gi() { curl -L -s https://www.gitignore.io/api/$@ ;}; gi"
 [ssh]
