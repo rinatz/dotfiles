@@ -82,6 +82,11 @@ if type direnv &>/dev/null; then
 fi
 
 #
+# BASH_SILENCE_DEPRECATION_WARNING
+#
+export BASH_SILENCE_DEPRECATION_WARNING=1
+
+#
 # SDKROOT
 #
 if type xcrun &>/dev/null; then
