@@ -82,9 +82,16 @@ if type direnv &>/dev/null; then
 fi
 
 #
+# SDKROOT
+#
+if type xcrun &>/dev/null; then
+    export SDKROOT=$(xcrun --sdk macosx --show-sdk-path)
+fi
+
+#
 # python
 #
-# PYTHON_CONFIGURE_OPTS="--enable-framework --with-tcltk-includes='-I/usr/local/opt/tcl-tk/include' --with-tcltk-libs='-L/usr/local/opt/tcl-tk/lib -ltcl8.6 -ltk8.6'"
+PYTHON_CONFIGURE_OPTS="--enable-shared"
 
 if [[ -d "${HOME}/.pyenv" ]]; then
     export PATH="${HOME}/.pyenv/bin:${PATH}"
