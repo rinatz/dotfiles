@@ -90,23 +90,13 @@ export BASH_SILENCE_DEPRECATION_WARNING=1
 # SDKROOT
 #
 if type xcrun &>/dev/null; then
-    export SDKROOT=$(xcrun --sdk macosx --show-sdk-path)
+    SDKROOT=$(xcrun --sdk macosx --show-sdk-path) || true
+    export SDKROOT
 fi
 
 #
 # python
 #
-PYTHON_CONFIGURE_OPTS="--enable-shared"
-
-if [[ -d "${HOME}/.pyenv" ]]; then
-    export PATH="${HOME}/.pyenv/bin:${PATH}"
-    eval "$(pyenv init -)"
-
-    if [[ -d "${HOME}/.pyenv/plugins/pyenv-virtualenv" ]]; then
-        eval "$(pyenv virtualenv-init -)"
-    fi
-fi
-
 if [[ -f "${HOME}/.poetry/env" ]]; then
     # shellcheck source=/dev/null
     . "${HOME}/.poetry/env"
