@@ -68,7 +68,10 @@ if [[ -f "${HOME}/.fzf.bash" ]]; then
         function __fzf_ghq_look__() {
             local dir
             dir="$(ghq list | fzf)"
-            cd "$(ghq root)/${dir}" || exit
+
+            if [[ -n "${dir}" ]]; then
+                cd "$(ghq root)/${dir}" || exit
+            fi
         }
         bind -x '"\C-g": __fzf_ghq_look__'
     fi
