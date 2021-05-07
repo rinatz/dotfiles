@@ -1,6 +1,16 @@
 [core]
 	editor = vi
 	autocrlf = false
+	pager = delta
+[interactive]
+	diffFilter = delta --color-only
+[delta]
+	line-numbers = true
+[diff]
+	tool = vscode
+	colorMoved = default
+[difftool "vscode"]
+	cmd = code --wait --diff $LOCAL $REMOTE
 [gui]
 	encoding = utf-8
 [alias]
