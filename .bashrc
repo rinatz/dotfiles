@@ -5,6 +5,11 @@ if [[ -f /etc/profile ]]; then
     . /etc/profile
 fi
 
+if [[ -f /etc/bashrc ]]; then
+    # shellcheck source=/dev/null
+    . /etc/bashrc
+fi
+
 #
 # aliases
 #
