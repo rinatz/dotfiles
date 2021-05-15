@@ -1,6 +1,7 @@
 [core]
 	editor = vi
 	autocrlf = false
+	# pager = delta
 [gui]
 	encoding = utf-8
 [alias]
@@ -9,3 +10,9 @@
 	variant = ssh
 [pull]
 	rebase = false
+# [credential]
+# 	helper = osxkeychain
+# [interactive]
+# 	diffFilter = delta --color-only
+# [delta]
+# 	features = side-by-side line-numbers
