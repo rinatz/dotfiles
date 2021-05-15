@@ -1,5 +1,10 @@
 # shellcheck shell=bash
 
+if [[ -f /etc/profile ]]; then
+    # shellcheck source=/dev/null
+    . /etc/profile
+fi
+
 #
 # aliases
 #
@@ -9,41 +14,20 @@ alias rm='rm -i'
 
 if type exa &>/dev/null; then
     alias ls='exa'
-    alias ll='exa -lhF --time-style=long-iso'
+    alias ll='exa -lhF --time-style=long-iso --icons'
 else
     alias ll='ls -lhF'
 fi
 
 #
-# completions
+# bash-completion
 #
-if [[ -f /etc/profile ]]; then
-    . /etc/profile
-fi
-
 if [[ -f /usr/share/bash-completion/bash_completion ]]; then
     # shellcheck source=/dev/null
     . /usr/share/bash-completion/bash_completion
-elif [[ -f /etc/bash_completion ]]; then
+elif [[ -f /usr/local/etc/bash_completion ]]; then
     # shellcheck source=/dev/null
-    . /etc/bash_completion
-elif [[ -f /usr/local/etc/profile.d/bash_completion.sh ]]; then
-    # shellcheck source=/dev/null
-    . /usr/local/etc/profile.d/bash_completion.sh
-fi
-
-if [[ -f /usr/share/git-core/contrib/completion/git-prompt.sh ]]; then
-    # shellcheck source=/dev/null
-    . /usr/share/git-core/contrib/completion/git-prompt.sh
-fi
-
-#
-# PS1
-#
-if type __git_ps1 &>/dev/null; then
-    PS1='\[\e]0;\h:\w\a\]\[\e[0;32m\]\u\[\e[0m\]@\[\e[34;1m\]\h\[\e[0m\]:\[\e[0;33m\]\W$(__git_ps1)\[\e[0m\] \$ \[\e[0m\]'
-else
-    PS1='\[\e]0;\h:\w\a\]\[\e[0;32m\]\u\[\e[0m\]@\[\e[34;1m\]\h\[\e[0m\]:\[\e[0;33m\]\W\[\e[0m\] \$ \[\e[0m\]'
+    . /usr/local/etc/bash_completion
 fi
 
 #
@@ -82,19 +66,6 @@ fi
 #
 if type direnv &>/dev/null; then
     eval "$(direnv hook bash)"
-fi
-
-#
-# BASH_SILENCE_DEPRECATION_WARNING
-#
-export BASH_SILENCE_DEPRECATION_WARNING=1
-
-#
-# SDKROOT
-#
-if type xcrun &>/dev/null; then
-    SDKROOT=$(xcrun --sdk macosx --show-sdk-path) || true
-    export SDKROOT
 fi
 
 #
@@ -149,3 +120,23 @@ fi
 #
 export GOPATH="${HOME}/go"
 export PATH="${GOPATH}/bin:${PATH}"
+
+#
+# BASH_SILENCE_DEPRECATION_WARNING
+#
+export BASH_SILENCE_DEPRECATION_WARNING=1
+
+#
+# SDKROOT
+#
+if type xcrun &>/dev/null; then
+    SDKROOT=$(xcrun --sdk macosx --show-sdk-path) || true
+    export SDKROOT
+fi
+
+#
+# starship
+#
+if type starship &>/dev/null; then
+    eval "$(starship init bash)"
+fi
