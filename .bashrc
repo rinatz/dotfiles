@@ -106,19 +106,10 @@ if [[ -f "${HOME}/.cargo/env" ]]; then
 fi
 
 #
-# nvm
+# volta
 #
-export NVM_DIR="${HOME}/.nvm"
-
-if [[ -f "${NVM_DIR}/nvm.sh" ]]; then
-    # shellcheck source=/dev/null
-    . "${NVM_DIR}/nvm.sh"
-fi
-
-if [[ -f "${NVM_DIR}/bash_completion" ]]; then
-    # shellcheck source=/dev/null
-    . "${NVM_DIR}/bash_completion"
-fi
+export VOLTA_HOME="${HOME}/.volta"
+export PATH="${VOLTA_HOME}/bin:${PATH}"
 
 #
 # go
