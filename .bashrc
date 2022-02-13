@@ -47,6 +47,11 @@ PROMPT_COMMAND='__share_history__'
 shopt -u histappend
 
 #
+# PATH
+#
+export PATH="${HOME}/.local/bin:${PATH}"
+
+#
 # fzf
 #
 if [[ -f "${HOME}/.fzf.bash" ]]; then
@@ -76,6 +81,11 @@ fi
 #
 # python
 #
+if [[ -d "${HOME}/.pyenv" ]]; then
+    export PATH="${HOME}/.pyenv/bin:${PATH}"
+    eval "$(pyenv init -)"
+fi
+
 if [[ -f "${HOME}/.poetry/env" ]]; then
     # shellcheck source=/dev/null
     . "${HOME}/.poetry/env"
