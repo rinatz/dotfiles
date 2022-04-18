@@ -59,7 +59,7 @@ if [[ -f "${HOME}/.fzf.bash" ]]; then
     . "${HOME}/.fzf.bash"
 
     if [[ -t 1 ]]; then
-        function __fzf_ghq_look__() {
+        function __fzf_git_repo__() {
             local dir
             dir="$(ghq list | fzf)"
 
@@ -67,7 +67,7 @@ if [[ -f "${HOME}/.fzf.bash" ]]; then
                 cd "$(ghq root)/${dir}" || exit
             fi
         }
-        bind -x '"\C-g": __fzf_ghq_look__'
+        bind -x '"\C-@": __fzf_git_repo__'
     fi
 fi
 
