@@ -67,7 +67,7 @@ if [[ -f "${HOME}/.fzf.bash" ]]; then
                 cd "$(ghq root)/${dir}" || exit
             fi
         }
-        bind -x '"\C-@": __fzf_git_repo__'
+        bind -x '"\C-h": __fzf_git_repo__'
     fi
 fi
 
