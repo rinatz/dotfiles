@@ -9,7 +9,7 @@ charset = utf-8
 trim_trailing_whitespace = true
 insert_final_newline = false
 
-[{*.mk,Makefile}]
+[Makefile]
 indent_style = tab
 
 [*.go]
@@ -19,6 +19,9 @@ indent_style = tab
 indent_size = 4
 
 [{*.rb,Vagrantfile}]
+indent_size = 2
+
+[{*.js,*.ts,*.css,*.vue}]
 indent_size = 2
 
 [{*.yml,*.yaml}]
