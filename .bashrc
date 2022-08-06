@@ -134,14 +134,6 @@ export PATH="${GOPATH}/bin:${PATH}"
 export BASH_SILENCE_DEPRECATION_WARNING=1
 
 #
-# SDKROOT
-#
-if type xcrun &>/dev/null; then
-    SDKROOT=$(xcrun --sdk macosx --show-sdk-path) || true
-    export SDKROOT
-fi
-
-#
 # starship
 #
 if type starship &>/dev/null; then
