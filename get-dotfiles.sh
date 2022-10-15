@@ -5,7 +5,7 @@ alias rm="\rm"
 alias cp="\cp"
 
 function main() {
-    local url="https://github.com/rinatz/dotfiles/archive/master.tar.gz"
+    local url="https://github.com/rinatz/dotfiles/archive/main.tar.gz"
 
     local temp
     temp=$(mktemp -d /tmp/dotfiles-XXXXXX)
