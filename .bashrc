@@ -62,7 +62,7 @@ if [[ -f "${HOME}/.fzf.bash" ]]; then
                 cd "$(ghq root)/${dir}" || exit
             fi
         }
-        bind -x '"\C-]": __fzf_git_repo__'
+        bind -x '"\C-g": __fzf_git_repo__'
     fi
 fi
 
@@ -134,3 +134,9 @@ export BASH_SILENCE_DEPRECATION_WARNING=1
 if type starship &>/dev/null; then
     eval "$(starship init bash)"
 fi
+
+function set_win_title() {
+    echo -ne "\033]0; $(basename "${PWD}") \007"
+}
+
+starship_precmd_user_func="set_win_title"
