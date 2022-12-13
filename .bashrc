@@ -19,7 +19,7 @@ alias rm='rm -i'
 
 if type exa &>/dev/null; then
     alias ls='exa'
-    alias ll='exa -lhF --time-style=long-iso --icons'
+    alias ll='exa -lhF --time-style=long-iso --icons --git'
 else
     alias ll='ls -lhF'
 fi
@@ -38,12 +38,7 @@ fi
 #
 # share history
 #
-function __share_history__() {
-    history -a
-    history -c
-    history -r
-}
-PROMPT_COMMAND='__share_history__'
+PROMPT_COMMAND="history -a; history -c; history -r; ${PROMPT_COMMAND}"
 shopt -u histappend
 
 #
