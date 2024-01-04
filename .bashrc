@@ -82,11 +82,6 @@ if [[ -d "${HOME}/.pyenv" ]]; then
     eval "$(pyenv init -)"
 fi
 
-if [[ -f "${HOME}/.poetry/env" ]]; then
-    # shellcheck source=/dev/null
-    . "${HOME}/.poetry/env"
-fi
-
 #
 # ruby
 #
@@ -112,10 +107,10 @@ if [[ -f "${HOME}/.cargo/env" ]]; then
 fi
 
 #
-# volta
+# fnm
 #
-export VOLTA_HOME="${HOME}/.volta"
-export PATH="${VOLTA_HOME}/bin:${PATH}"
+export PATH="${HOME}/.local/share/fnm:${PATH}"
+eval "$(fnm env)"
 
 #
 # go
@@ -140,3 +135,7 @@ function set_win_title() {
 }
 
 starship_precmd_user_func="set_win_title"
+
+# fnm
+export PATH="/home/wsl/.local/share/fnm:$PATH"
+eval "`fnm env`"
