@@ -16,13 +16,7 @@ fi
 alias cp='cp -i'
 alias mv='mv -i'
 alias rm='rm -i'
-
-if type exa &>/dev/null; then
-    alias ls='exa'
-    alias ll='exa -lhF --time-style=long-iso --icons --git'
-else
-    alias ll='ls -lhF'
-fi
+alias ll='ls -lhF'
 
 #
 # bash-completion
@@ -67,35 +61,17 @@ if [[ -f "${HOME}/.fzf.bash" ]]; then
 fi
 
 #
+# mise
+#
+if type mise &>/dev/null; then
+    eval "$(~/.local/bin/mise activate bash)"
+fi
+
+#
 # direnv
 #
 if type direnv &>/dev/null; then
     eval "$(direnv hook bash)"
-fi
-
-#
-# python
-#
-if [[ -d "${HOME}/.pyenv" ]]; then
-    export PATH="${HOME}/.pyenv/bin:${PATH}"
-    eval "$(pyenv init --path)"
-    eval "$(pyenv init -)"
-fi
-
-#
-# ruby
-#
-if [[ -d "${HOME}/.rbenv" ]]; then
-    export PATH="${HOME}/.rbenv/bin:${PATH}"
-    eval "$(rbenv init -)"
-fi
-
-#
-# sdkman
-#
-if [[ -f "${HOME}/.sdkman/bin/sdkman-init.sh" ]]; then
-    # shellcheck source=/dev/null
-    . "${HOME}/.sdkman/bin/sdkman-init.sh"
 fi
 
 #
@@ -106,11 +82,6 @@ if [[ -f "${HOME}/.cargo/env" ]]; then
     . "${HOME}/.cargo/env"
 fi
 
-#
-# fnm
-#
-export PATH="${HOME}/.local/share/fnm:${PATH}"
-eval "$(fnm env)"
 
 #
 # go
@@ -134,8 +105,5 @@ function set_win_title() {
     echo -ne "\033]0; $(basename "${PWD}") \007"
 }
 
+# shellcheck disable=SC2034
 starship_precmd_user_func="set_win_title"
-
-# fnm
-export PATH="/home/wsl/.local/share/fnm:$PATH"
-eval "`fnm env`"
