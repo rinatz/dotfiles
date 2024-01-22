@@ -68,13 +68,6 @@ if type mise &>/dev/null; then
 fi
 
 #
-# direnv
-#
-if type direnv &>/dev/null; then
-    eval "$(direnv hook bash)"
-fi
-
-#
 # rustup
 #
 if [[ -f "${HOME}/.cargo/env" ]]; then
