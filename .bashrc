@@ -11,14 +11,6 @@ if [[ -f /etc/bashrc ]]; then
 fi
 
 #
-# aliases
-#
-alias cp='cp -i'
-alias mv='mv -i'
-alias rm='rm -i'
-alias ll='ls -lhF'
-
-#
 # bash-completion
 #
 if [[ -f /usr/share/bash-completion/bash_completion ]]; then
@@ -41,6 +33,18 @@ shopt -u histappend
 export PATH="${HOME}/.local/bin:${PATH}"
 
 #
+# BASH_SILENCE_DEPRECATION_WARNING (for macOS)
+#
+export BASH_SILENCE_DEPRECATION_WARNING=1
+
+#
+# mise
+#
+if type mise &>/dev/null; then
+    eval "$(~/.local/bin/mise activate bash)"
+fi
+
+#
 # fzf
 #
 if [[ -f "${HOME}/.fzf.bash" ]]; then
@@ -61,13 +65,6 @@ if [[ -f "${HOME}/.fzf.bash" ]]; then
 fi
 
 #
-# mise
-#
-if type mise &>/dev/null; then
-    eval "$(~/.local/bin/mise activate bash)"
-fi
-
-#
 # rustup
 #
 if [[ -f "${HOME}/.cargo/env" ]]; then
@@ -83,11 +80,6 @@ export GOPATH="${HOME}/go"
 export PATH="${GOPATH}/bin:${PATH}"
 
 #
-# BASH_SILENCE_DEPRECATION_WARNING
-#
-export BASH_SILENCE_DEPRECATION_WARNING=1
-
-#
 # starship
 #
 if type starship &>/dev/null; then
@@ -100,3 +92,16 @@ function set_win_title() {
 
 # shellcheck disable=SC2034
 starship_precmd_user_func="set_win_title"
+
+#
+# aliases
+#
+alias cp='cp -i'
+alias mv='mv -i'
+alias rm='rm -i'
+alias ll='ls -lhF'
+
+if mise which eza &>/dev/null; then
+    alias ls='eza'
+    alias ll='eza -lhF --time-style=long-iso --icons --git'
+fi
