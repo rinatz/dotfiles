@@ -33,15 +33,23 @@ shopt -u histappend
 export PATH="${HOME}/.local/bin:${PATH}"
 
 #
-# BASH_SILENCE_DEPRECATION_WARNING (for macOS)
+# BASH_SILENCE_DEPRECATION_WARNING (macOS)
 #
 export BASH_SILENCE_DEPRECATION_WARNING=1
 
 #
+# Homebrew (macOS)
+#
+if [[ -f "/opt/homebrew/bin/brew" ]]; then
+    eval "$(/opt/homebrew/bin/brew shellenv)"
+fi
+
+#
 # mise
 #
-if type mise &>/dev/null; then
-    eval "$(~/.local/bin/mise activate bash)"
+if [[ -f "${HOME}/.local/bin/mise" ]]; then
+    eval "$("${HOME}/.local/bin/mise" activate bash)"
+    eval "$("${HOME}/.local/bin/mise" env)"
 fi
 
 #
@@ -72,7 +80,6 @@ if [[ -f "${HOME}/.cargo/env" ]]; then
     . "${HOME}/.cargo/env"
 fi
 
-
 #
 # go
 #
@@ -101,7 +108,7 @@ alias mv='mv -i'
 alias rm='rm -i'
 alias ll='ls -lhF'
 
-if mise which eza &>/dev/null; then
+if type eza &>/dev/null; then
     alias ls='eza'
     alias ll='eza -lhF --time-style=long-iso --icons --git'
 fi
