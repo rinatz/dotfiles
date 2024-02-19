@@ -16,9 +16,9 @@ fi
 if [[ -f /usr/share/bash-completion/bash_completion ]]; then
     # shellcheck source=/dev/null
     . /usr/share/bash-completion/bash_completion
-elif [[ -f /usr/local/etc/bash_completion ]]; then
+elif [[ -f /opt/homebrew/etc/bash_completion ]]; then
     # shellcheck source=/dev/null
-    . /usr/local/etc/bash_completion
+    . /opt/homebrew/etc/bash_completion
 fi
 
 #
