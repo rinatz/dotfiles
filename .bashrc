@@ -108,7 +108,7 @@ alias mv='mv -i'
 alias rm='rm -i'
 alias ll='ls -lhF'
 
-if type eza &>/dev/null; then
-    alias ls='eza'
-    alias ll='eza -lhF --time-style=long-iso --icons --git'
+if type lsd &>/dev/null; then
+    alias ls='lsd'
+    alias ll='lsd -lhF --date="+%Y-%m-%d %H:%M:%S" --git --header'
 fi
