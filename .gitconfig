@@ -13,6 +13,8 @@
 	cmd = code --new-window --wait --diff $LOCAL $REMOTE
 [alias]
 	ignore = "!gi() { curl -sL https://www.toptal.com/developers/gitignore/api/$@ ;}; gi"
-	graph = "log --graph --date=iso --format='%C(auto)%h%C(reset)%C(auto)%d%C(reset) %s %C(cyan)<%an>%C(reset) %C(dim)%cd%C(reset)'"
+	lg = "log --graph --date=iso --format='%C(auto)%h%C(reset)%C(auto)%d%C(reset) %s %C(cyan)<%an>%C(reset) %C(dim)%cd%C(reset)'"
 [credential]
 	helper = osxkeychain
+[fetch]
+	prune = true
