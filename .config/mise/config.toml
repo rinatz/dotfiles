@@ -1,0 +1,10 @@
+[tools]
+go = "latest"
+python = "latest"
+node = "lts"
+cmake = "latest"
+jq = "latest"
+ghq = "latest"
+delta = "latest"
+lsd = "latest"
+ruby = "latest"
