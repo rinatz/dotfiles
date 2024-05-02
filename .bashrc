@@ -49,7 +49,6 @@ fi
 #
 if [[ -f "${HOME}/.local/bin/mise" ]]; then
     eval "$("${HOME}/.local/bin/mise" activate bash)"
-    eval "$("${HOME}/.local/bin/mise" env)"
 fi
 
 #
@@ -112,3 +111,5 @@ if type lsd &>/dev/null; then
     alias ls='lsd'
     alias ll='lsd -lhF --date="+%Y-%m-%d %H:%M:%S" --git --header'
 fi
+
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
