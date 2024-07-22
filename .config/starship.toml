@@ -18,6 +18,7 @@ $java\
 $julia\
 $nodejs\
 $nim\
+$python\
 $rust\
 $scala\
 [](fg:#86BBD8 bg:#06969A)\
@@ -72,7 +73,7 @@ format = '[ $symbol ($version) ]($style)'
 [docker_context]
 symbol = " "
 style = "bg:#06969A"
-format = '[ $symbol $context ]($style) $path'
+format = '[ $symbol $context ]($style)'
 
 [elixir]
 symbol = " "
@@ -126,6 +127,11 @@ format = '[ $symbol ($version) ]($style)'
 symbol = "󰆥 "
 style = "bg:#86BBD8"
 format = '[ $symbol ($version) ]($style)'
+
+[python]
+symbol = ""
+style = "bg:#86BBD8"
+format = '[ $symbol $pyenv_prefix($version) (\($virtualenv\)) ]($style)'
 
 [rust]
 symbol = ""
