@@ -92,13 +92,6 @@ if type starship &>/dev/null; then
     eval "$(starship init bash)"
 fi
 
-function set_win_title() {
-    echo -ne "\033]0; $(basename "${PWD}") \007"
-}
-
-# shellcheck disable=SC2034
-starship_precmd_user_func="set_win_title"
-
 #
 # aliases
 #
@@ -111,5 +104,3 @@ if type lsd &>/dev/null; then
     alias ls='lsd'
     alias ll='lsd -lhF --date="+%Y-%m-%d %H:%M:%S" --git --header'
 fi
-
-[ -f ~/.fzf.bash ] && source ~/.fzf.bash
