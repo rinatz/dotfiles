@@ -86,6 +86,12 @@ export GOPATH="${HOME}/go"
 export PATH="${GOPATH}/bin:${PATH}"
 
 #
+# pnpm
+#
+export PNPM_HOME="${HOME}/Library/pnpm"
+export PATH="${PNPM_HOME}:${PATH}"
+
+#
 # starship
 #
 if type starship &>/dev/null; then
@@ -102,5 +108,5 @@ alias ll='ls -lhF'
 
 if type lsd &>/dev/null; then
     alias ls='lsd'
-    alias ll='lsd -lhF --date="+%Y-%m-%d %H:%M:%S" --git --header'
+    alias ll='lsd -lhF --date="+%Y-%m-%d %H:%M:%S" --git --header --group-dirs=first'
 fi
