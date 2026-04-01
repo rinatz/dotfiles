@@ -92,6 +92,12 @@ export PNPM_HOME="${HOME}/Library/pnpm"
 export PATH="${PNPM_HOME}:${PATH}"
 
 #
+# Takumi Guard
+#
+export PIP_INDEX_URL="https://pypi.flatt.tech/simple/"
+export UV_INDEX_URL="https://pypi.flatt.tech/simple/"
+
+#
 # starship
 #
 if type starship &>/dev/null; then
