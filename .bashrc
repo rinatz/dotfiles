@@ -49,22 +49,20 @@ fi
 #
 if [[ -f "${HOME}/.local/bin/mise" ]]; then
     eval "$("${HOME}/.local/bin/mise" activate bash)"
+    eval "$("${HOME}/.local/bin/mise" activate --shims)"
 fi
 
 #
 # fzf
 #
-if [[ -f "${HOME}/.fzf.bash" ]]; then
-    # shellcheck source=/dev/null
-    . "${HOME}/.fzf.bash"
-
-    if [[ -t 1 ]]; then
+if command -v fzf &>/dev/null; then
+    if [[ $- == *i* ]]; then
         function __fzf_git_repo__() {
             local dir
             dir="$(ghq list | fzf)"
 
             if [[ -n "${dir}" ]]; then
-                cd "$(ghq root)/${dir}" || exit
+                cd "$(ghq root)/${dir}" || return 1
             fi
         }
         bind -x '"\C-g": __fzf_git_repo__'
@@ -100,7 +98,7 @@ export UV_INDEX_URL="https://pypi.flatt.tech/simple/"
 #
 # starship
 #
-if type starship &>/dev/null; then
+if command -v starship &>/dev/null; then
     eval "$(starship init bash)"
 fi
 
@@ -112,7 +110,7 @@ alias mv='mv -i'
 alias rm='rm -i'
 alias ll='ls -lhF'
 
-if type lsd &>/dev/null; then
+if command -v lsd &>/dev/null; then
     alias ls='lsd'
     alias ll='lsd -lhF --date="+%Y-%m-%d %H:%M:%S" --git --header --group-dirs=first'
 fi
