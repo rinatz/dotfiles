@@ -56,6 +56,8 @@ fi
 # fzf
 #
 if command -v fzf &>/dev/null; then
+    eval "$(fzf --bash)"
+
     if [[ $- == *i* ]]; then
         function __fzf_git_repo__() {
             local dir
